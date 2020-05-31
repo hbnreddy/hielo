@@ -1,4 +1,4 @@
-currentBuild.displayName="color_login_app_v13.0-#"+currentBuild.number
+currentBuild.displayName="helio_app_v14.0-#"+currentBuild.number
 pipeline{
     agent any
  //   options {
@@ -16,7 +16,7 @@ pipeline{
                 extensions: [[$class: 'CleanBeforeCheckout']], 
                 submoduleCfg: [], 
                 userRemoteConfigs: [[credentialsId: 'github_credentials', 
-                url: 'https://github.com/HariReddy910/sonar_Pract.git']]])
+                url: 'https://github.com/HariReddy910/hielo.git']]])
                 echo "Download finished form SCM"
             }
         }
@@ -52,7 +52,7 @@ pipeline{
         stage("Deployment-AppServer"){
             steps{
                 echo "hi"
-                sh label: '', script: 'scp /var/lib/jenkins/workspace/color_login_app_v13.0/webapp/target/webapp.war ubuntu@172.31.26.148:/var/lib/tomcat9/webapps/color_login_app_v13.0.war'
+                sh label: '', script: 'scp /var/lib/jenkins/workspace/helio/webapp/target/webapp.war ubuntu@172.31.26.148:/var/lib/tomcat9/webapps/helio_app_v14.0.war'
             }
         }
        
